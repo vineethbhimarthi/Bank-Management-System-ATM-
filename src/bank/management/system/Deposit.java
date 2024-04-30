@@ -68,6 +68,7 @@ public class Deposit extends JFrame implements ActionListener {
            if (e.getSource()==deposit)
            {
                String deposit_amount=amount.getText();
+               //System.out.println(deposit_amount);
                Date date=new Date();
                if(deposit_amount.equals(""))
                    JOptionPane.showMessageDialog(null,"Enter DEPOSIT Amount");
@@ -81,8 +82,8 @@ public class Deposit extends JFrame implements ActionListener {
                       String cash="";
                        if(rs.next())
                        cash=rs.getString("balance");
-                      String totalbalance=""+((Integer.parseInt(cash))+(Integer.parseInt(deposit_amount)));
-                       //System.out.println(totalbalance);
+                       String totalbalance=""+((Integer.parseInt(cash))+(Integer.parseInt(deposit_amount)));
+                       System.out.println(totalbalance);
                        String query3="UPDATE bankbalance SET balance='"+totalbalance+"' WHERE pin='"+pinnumber+"'";
                       c.s.executeUpdate(query3);
                        rs.close();
